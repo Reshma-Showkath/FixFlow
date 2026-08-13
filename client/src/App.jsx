@@ -31,8 +31,10 @@ function App() {
 
     try {
       const response = await fetch(
-  `https://fixflow-oe6u.onrender.com/api/problems/${problemId}`
-);
+        `https://fixflow-oe6u.onrender.com/api/search?q=${encodeURIComponent(
+          search
+        )}`
+      );
 
       if (!response.ok) {
         throw new Error(`Server returned ${response.status}`);
@@ -61,7 +63,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/problems/${problemId}`
+        `https://fixflow-oe6u.onrender.com/api/problems/${problemId}`
       );
 
       if (!response.ok) {
@@ -84,11 +86,9 @@ function App() {
 
   return (
     <div className="app">
-
       {/* HEADER */}
       <header className="header">
         <div className="container header-content">
-
           <div className="logo">
             <div className="logo-mark">F</div>
             <span>FixFlow</span>
@@ -97,17 +97,13 @@ function App() {
           <div className="header-badge">
             Developer Troubleshooting
           </div>
-
         </div>
       </header>
 
-
       <main>
-
         {/* HERO */}
         <section className="hero">
           <div className="container">
-
             <h1>
               Fix errors.
               <br />
@@ -124,18 +120,14 @@ function App() {
               setSearch={setSearch}
               onSearch={handleSearch}
             />
-
           </div>
         </section>
-
 
         {/* API ERROR */}
         {error && (
           <section className="section">
             <div className="container">
-
               <div className="api-error">
-
                 <div className="api-error-title">
                   Something went wrong
                 </div>
@@ -143,45 +135,33 @@ function App() {
                 <div className="api-error-message">
                   {error}
                 </div>
-
               </div>
-
             </div>
           </section>
         )}
 
-
         {/* SEARCH RESULTS */}
         {submittedSearch && !error && (
           <section className="section">
-
             <div className="container">
-
               <div className="section-title">
                 Search Results
               </div>
 
-
-              {/* SEARCH LOADING */}
               {loading && (
                 <div className="loading">
                   Searching FixFlow...
                 </div>
               )}
 
-
-              {/* NO RESULTS */}
               {!loading && results.length === 0 && (
                 <div className="empty">
                   No matching problems found.
                 </div>
               )}
 
-
-              {/* RESULTS */}
               {!loading && results.length > 0 && (
                 <div className="results">
-
                   {results.map((problem) => (
                     <ProblemCard
                       key={problem.id}
@@ -190,48 +170,32 @@ function App() {
                       loading={loadingProblemId === problem.id}
                     />
                   ))}
-
                 </div>
               )}
-
             </div>
-
           </section>
         )}
-
 
         {/* DETAILS LOADING */}
         {loadingProblemId && !error && (
           <section className="section">
-
             <div className="container">
-
               <div className="loading">
                 Loading troubleshooting path...
               </div>
-
             </div>
-
           </section>
         )}
-
 
         {/* PROBLEM DETAILS */}
         {selectedProblem && !error && !loadingProblemId && (
           <section className="section">
-
             <div className="container">
-
               <div className="details">
-
                 <div className="details-header">
-
-                  <h2>
-                    {selectedProblem.title}
-                  </h2>
+                  <h2>{selectedProblem.title}</h2>
 
                   <div className="error-box">
-
                     <div className="error-code">
                       {selectedProblem.error.code}
                     </div>
@@ -239,37 +203,26 @@ function App() {
                     <div className="error-message">
                       {selectedProblem.error.message}
                     </div>
-
                   </div>
-
                 </div>
-
 
                 <h3 className="troubleshooting-title">
                   Troubleshooting Paths
                 </h3>
 
-
                 <div className="paths">
-
                   {selectedProblem.paths.map((path) => (
                     <TroubleshootingPath
                       key={path.cause.id}
                       path={path}
                     />
                   ))}
-
                 </div>
-
               </div>
-
             </div>
-
           </section>
         )}
-
       </main>
-
     </div>
   );
 }
