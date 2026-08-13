@@ -31,8 +31,8 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/search?q=${encodeURIComponent(search)}`
-      );
+  `https://fixflow-oe6u.onrender.com/api/problems/${problemId}`
+);
 
       if (!response.ok) {
         throw new Error(`Server returned ${response.status}`);
