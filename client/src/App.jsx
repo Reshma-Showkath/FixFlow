@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SearchBar from "./components/SearchBar";
 import ProblemCard from "./components/ProblemCard";
-import TroubleshootingPath from "./components/TroubleshootingPath";
+import TroubleshootingPath from "./components/TroubleShootingPath";
 
 function App() {
   const [search, setSearch] = useState("");
