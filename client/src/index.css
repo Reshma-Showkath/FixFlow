@@ -1,0 +1,907 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+
+  color: #e8edf7;
+  background: #0b1020;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(circle at top left, #18213d 0, transparent 35%),
+    radial-gradient(circle at top right, #152b3d 0, transparent 30%),
+    #0b1020;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.header {
+  padding: 28px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: rgba(11, 16, 32, 0.75);
+
+  backdrop-filter: blur(12px);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 22px;
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+}
+
+.logo-mark {
+  display: grid;
+  place-items: center;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 10px;
+
+  background: #4f7cff;
+
+  color: white;
+
+  font-size: 17px;
+}
+
+.header-badge {
+  padding: 7px 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 999px;
+
+  color: #9ca9c2;
+
+  font-size: 13px;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+  padding: 80px 0 55px;
+
+  text-align: center;
+}
+
+.hero h1 {
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  font-size: clamp(38px, 6vw, 68px);
+
+  line-height: 1.05;
+
+  letter-spacing: -2.5px;
+}
+
+.hero h1 span {
+  color: #6f95ff;
+}
+
+.hero p {
+  max-width: 620px;
+
+  margin: 20px auto 35px;
+
+  color: #9ca9c2;
+
+  font-size: 18px;
+
+  line-height: 1.7;
+}
+
+
+/* ================================
+   SEARCH
+================================ */
+
+.search-wrapper {
+  display: flex;
+
+  width: min(760px, 100%);
+
+  margin: 0 auto;
+
+  padding: 7px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.search-wrapper input {
+  flex: 1;
+
+  min-width: 0;
+
+  border: none;
+
+  outline: none;
+
+  padding: 15px 18px;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 16px;
+}
+
+.search-wrapper input::placeholder {
+  color: #66738c;
+}
+
+.search-wrapper button {
+  border: none;
+
+  border-radius: 11px;
+
+  padding: 0 24px;
+
+  background: #4f7cff;
+
+  color: white;
+
+  font-weight: 700;
+
+  transition: 0.2s ease;
+}
+
+.search-wrapper button:hover {
+  background: #638bff;
+
+  transform: translateY(-1px);
+}
+
+
+/* ================================
+   SECTIONS
+================================ */
+
+.section {
+  padding: 20px 0 60px;
+}
+
+.section-title {
+  margin-bottom: 20px;
+
+  font-size: 14px;
+
+  color: #7f8ba3;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* ================================
+   RESULTS
+================================ */
+
+.results {
+  display: grid;
+
+  gap: 14px;
+}
+
+.problem-card {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  transition: 0.2s ease;
+}
+
+.problem-card:hover {
+  border-color: rgba(111, 149, 255, 0.45);
+
+  background: rgba(111, 149, 255, 0.06);
+
+  transform: translateY(-2px);
+}
+
+.problem-card h2 {
+  margin-bottom: 9px;
+
+  font-size: 19px;
+}
+
+.problem-card p {
+  display: inline-block;
+
+  margin-right: 14px;
+
+  color: #8e9bb3;
+
+  font-size: 14px;
+}
+
+.problem-card strong {
+  color: #f0a66a;
+
+  font-family: monospace;
+}
+
+.problem-card button {
+  flex-shrink: 0;
+
+  border: 1px solid rgba(111, 149, 255, 0.35);
+
+  border-radius: 10px;
+
+  padding: 10px 15px;
+
+  background: rgba(111, 149, 255, 0.1);
+
+  color: #91acff;
+
+  font-weight: 700;
+}
+
+.problem-card button:hover {
+  background: rgba(111, 149, 255, 0.2);
+}
+
+
+/* ================================
+   DETAILS
+================================ */
+
+.details {
+  margin-top: 45px;
+
+  padding: 30px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.details-header {
+  margin-bottom: 30px;
+}
+
+.details-header h2 {
+  margin-bottom: 12px;
+
+  font-size: 30px;
+}
+
+.error-box {
+  padding: 16px;
+
+  border-left: 3px solid #f0a66a;
+
+  border-radius: 8px;
+
+  background: rgba(240, 166, 106, 0.07);
+}
+
+.error-code {
+  margin-bottom: 5px;
+
+  color: #f0a66a;
+
+  font-family: monospace;
+
+  font-weight: 800;
+}
+
+.error-message {
+  color: #9ca9c2;
+}
+
+
+/* ================================
+   TROUBLESHOOTING
+================================ */
+
+.troubleshooting-title {
+  margin-bottom: 20px;
+
+  font-size: 20px;
+}
+
+.paths {
+  display: grid;
+
+  gap: 18px;
+}
+
+
+/* ================================
+   DESKTOP
+   CAUSE → CHECK → SOLUTION
+================================ */
+
+.troubleshooting-path {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    50px
+    minmax(0, 1fr)
+    50px
+    minmax(0, 1fr);
+
+  align-items: stretch;
+
+  gap: 10px;
+
+  width: 100%;
+}
+
+
+/* ================================
+   PATH CARDS
+================================ */
+
+.path-step {
+  min-width: 0;
+
+  padding: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  transition: 0.2s ease;
+}
+
+.path-step:hover {
+  border-color: rgba(111, 149, 255, 0.25);
+
+  transform: translateY(-2px);
+}
+
+.path-step h3 {
+  margin: 8px 0;
+
+  font-size: 16px;
+
+  line-height: 1.4;
+}
+
+.path-step p {
+  color: #8e9bb3;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+.step-label {
+  color: #6f95ff;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* ================================
+   ARROWS
+================================ */
+
+.path-arrow {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 50px;
+
+  min-width: 50px;
+
+  height: 100%;
+
+  color: #6f95ff;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  text-align: center;
+}
+
+
+/* Desktop arrow */
+.desktop-arrow {
+  display: inline-block;
+}
+
+
+/* Mobile arrow hidden on desktop */
+.mobile-arrow {
+  display: none;
+}
+
+
+/* ================================
+   SOLUTION
+================================ */
+
+.solution {
+  border-color: rgba(75, 200, 150, 0.25);
+
+  background: rgba(75, 200, 150, 0.05);
+}
+
+.solution:hover {
+  border-color: rgba(75, 200, 150, 0.45);
+}
+
+.solution .step-label {
+  color: #58c99a;
+}
+
+
+/* ================================
+   STATES
+================================ */
+
+.loading,
+.empty {
+  padding: 40px;
+
+  text-align: center;
+
+  color: #7f8ba3;
+}
+
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 900px) {
+
+  .troubleshooting-path {
+    grid-template-columns:
+      minmax(0, 1fr)
+      40px
+      minmax(0, 1fr)
+      40px
+      minmax(0, 1fr);
+
+    gap: 6px;
+  }
+
+  .path-arrow {
+    width: 40px;
+
+    min-width: 40px;
+  }
+
+  .path-step {
+    padding: 16px;
+  }
+
+  .path-step h3 {
+    font-size: 15px;
+  }
+
+  .path-step p {
+    font-size: 13px;
+  }
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 800px) {
+
+  .troubleshooting-path {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    width: 100%;
+
+    gap: 0;
+  }
+
+  .path-step {
+    width: 100%;
+
+    padding: 18px;
+  }
+
+  .path-arrow {
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    height: 40px !important;
+
+    color: #6f95ff !important;
+
+    font-size: 28px !important;
+
+    line-height: 1 !important;
+  }
+
+  /* Hide → */
+  .desktop-arrow {
+    display: none !important;
+  }
+
+  /* Show ↓ */
+  .mobile-arrow {
+    display: inline-block !important;
+  }
+
+  .problem-card {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .problem-card button {
+    width: 100%;
+  }
+}
+
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+  .header {
+    padding: 20px 0;
+  }
+
+  .hero {
+    padding: 55px 0 40px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+
+    letter-spacing: -1.5px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .search-wrapper {
+    flex-direction: column;
+
+    gap: 7px;
+  }
+
+  .search-wrapper button {
+    min-height: 46px;
+  }
+
+  .details {
+    margin-top: 25px;
+
+    padding: 20px;
+  }
+
+  .details-header h2 {
+    font-size: 24px;
+  }
+
+  .header-badge {
+    display: none;
+  }
+}
+
+
+/* ================================
+   VERY SMALL PHONES
+================================ */
+
+@media (max-width: 400px) {
+
+  .container {
+    width: 94%;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .details {
+    padding: 16px;
+  }
+
+  .path-step h3 {
+    font-size: 15px;
+  }
+
+  .path-step p {
+    font-size: 13px;
+  }
+}
+.clear-button {
+  border: none !important;
+  background: transparent !important;
+
+  color: #7f8ba3 !important;
+
+  font-size: 24px !important;
+  font-weight: 400 !important;
+
+  padding: 0 12px !important;
+
+  transform: none !important;
+}
+
+.clear-button:hover {
+  color: #ffffff !important;
+
+  background: transparent !important;
+
+  transform: none !important;
+}
+
+.search-button {
+  border: none;
+  border-radius: 11px;
+  padding: 0 24px;
+  background: #4f7cff;
+  color: white;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.search-button:hover {
+  background: #638bff;
+  transform: translateY(-1px);
+}
+.api-error {
+  padding: 20px;
+
+  border: 1px solid rgba(240, 166, 106, 0.3);
+
+  border-left: 4px solid #f0a66a;
+
+  border-radius: 12px;
+
+  background: rgba(240, 166, 106, 0.08);
+}
+
+.api-error-title {
+  margin-bottom: 6px;
+
+  color: #f0a66a;
+
+  font-size: 16px;
+
+  font-weight: 800;
+}
+
+.api-error-message {
+  color: #9ca9c2;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+.problem-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+/* ================================
+   PROBLEM CARD IMPROVEMENTS
+================================ */
+
+.problem-info {
+  min-width: 0;
+}
+
+.problem-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* ================================
+   API ERROR
+================================ */
+
+.api-error {
+  padding: 20px;
+
+  border: 1px solid rgba(240, 166, 106, 0.3);
+
+  border-left: 4px solid #f0a66a;
+
+  border-radius: 12px;
+
+  background: rgba(240, 166, 106, 0.08);
+}
+
+.api-error-title {
+  margin-bottom: 6px;
+
+  color: #f0a66a;
+
+  font-size: 16px;
+
+  font-weight: 800;
+}
+
+.api-error-message {
+  color: #9ca9c2;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* ================================
+   CLEAR SEARCH
+================================ */
+
+.clear-button {
+  border: none !important;
+
+  background: transparent !important;
+
+  color: #7f8ba3 !important;
+
+  font-size: 24px !important;
+
+  font-weight: 400 !important;
+
+  padding: 0 12px !important;
+
+  transform: none !important;
+}
+
+.clear-button:hover {
+  color: #ffffff !important;
+
+  background: transparent !important;
+
+  transform: none !important;
+}
+
+
+/* ================================
+   SEARCH BUTTON
+================================ */
+
+.search-button {
+  border: none;
+
+  border-radius: 11px;
+
+  padding: 0 24px;
+
+  background: #4f7cff;
+
+  color: white;
+
+  font-weight: 700;
+
+  transition: 0.2s ease;
+}
+
+.search-button:hover {
+  background: #638bff;
+
+  transform: translateY(-1px);
+}
+
+
+/* ================================
+   MOBILE SEARCH
+================================ */
+
+@media (max-width: 600px) {
+
+  .clear-button {
+    position: absolute;
+
+    right: 10px;
+
+    top: 10px;
+
+    height: 40px;
+  }
+
+  .search-wrapper {
+    position: relative;
+  }
+}
